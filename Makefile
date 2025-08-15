@@ -10,9 +10,12 @@ NAME = push_swap
 SRC_DIR = src
 OPS_DIR = src/ops
 STACK_DIR = src/stack
+PARSER_DIR = src/parser
 
 SRCS = $(OPS_DIR)/op_push.c $(OPS_DIR)/op_rotate.c $(OPS_DIR)/op_swap.c \
-	   $(STACK_DIR)/stack.c $(SRC_DIR)/push_swap.c
+	   $(STACK_DIR)/stack.c $(SRC_DIR)/push_swap.c $(PARSER_DIR)/parser_utils.c \
+	   $(PARSER_DIR)/parser.c
+	
 OBJS = $(SRCS:%.c=%.o)
 
 %.o: %.c
