@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 19:06:10 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/18 14:57:44 by dklepenk         ###   ########.fr       */
+/*   Created: 2025/08/18 13:20:02 by dklepenk          #+#    #+#             */
+/*   Updated: 2025/08/18 13:32:12 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-
-void push(List **head, int value)
-{
-	List *node;
-	node = malloc(sizeof(List));
-	if (!node)
-		return;
-	node->value = value;
-	node->next = *head;
-	*head = node;
-}
-
-bool pop(List **head, int *item)
+void free_list(List *head)
 {
 	List *temp;
 	
-	if (!(*head))
-		return (false);
-	temp = *head;
-	*item = temp->value; 
-	*head = temp->next;
-	free(temp);
-	return (true);	
+	while (head)
+	{
+		temp = head;
+		head = head->next;
+		free(temp);
+	}
 }
-
-

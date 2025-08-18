@@ -1,5 +1,5 @@
 CC ?= cc
-CC_FLAGS ?= #-Wall -Wextra 	-Werror
+CC_FLAGS = -Wall -Wextra -Werror -g -O0
 RM := rm -f
 
 LIBFT := libft
@@ -13,8 +13,8 @@ STACK_DIR = src/stack
 PARSER_DIR = src/parser
 
 SRCS = $(OPS_DIR)/op_push.c $(OPS_DIR)/op_rotate.c $(OPS_DIR)/op_swap.c \
-	   $(STACK_DIR)/stack.c $(SRC_DIR)/push_swap.c $(PARSER_DIR)/parser_utils.c \
-	   $(PARSER_DIR)/parser.c
+	   $(SRC_DIR)/push_swap.c $(PARSER_DIR)/parser_utils.c $(PARSER_DIR)/parser.c \
+	   $(STACK_DIR)/stack.c  $(STACK_DIR)/list_utils.c
 	
 OBJS = $(SRCS:%.c=%.o)
 

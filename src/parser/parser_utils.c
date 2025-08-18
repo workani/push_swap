@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:03:45 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/15 19:31:46 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/18 13:28:55 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,13 @@ bool is_valid_number(long x)
 	return (true);
 	}
 
-bool is_duplicate(int *collection, int len, int x)
+bool is_duplicate(List *head, int x)
 {
-	int i;
-
-	i = 0;
-	while (i < len)
+	while (head != NULL)
 	{
-		if (collection[i] == x)
+		if (head->value == x)
 			return (true);
-		i++;
+		head = head->next;
 	}
 	return (false);
 }
@@ -79,9 +76,9 @@ void reverse_collection(int *collection, int len)
 	}
 }
 
-void exit_on_error(int *collection)
+void exit_on_error(List *head)
 {
-	free(collection);
+	free_list(head);
 	ft_printf("\033[0;31mERROR: Invalid input detected. Terminating...\033[0m\n");
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:52:39 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/15 19:54:01 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/18 13:31:43 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,24 @@
 #define I_MAX 2147483647
 #define I_MIN -2147483648
 
-typedef struct Stack
-{
-	int *collection;
-	int capacity;
-	int size;
-} Stack;
+typedef struct List
+{	
+	int value;
+	struct List *next;
+} List;
+
 
 bool ft_cst_atol(char *str, long *result);
 bool is_valid_number(long x);
-bool is_duplicate(int *collection, int len, int x);
+bool is_duplicate(List *head, int x);
 void reverse_collection(int *collection, int len);
-void exit_on_error(int *collection);
+void exit_on_error(List *head);
 
-Stack *create_stack(int capacity);
-void *destroy_stack(Stack *stack);
-void push(Stack *stack, int item);
+void free_list(List *head);
 
-int *parse_strs(char **strs, int len);
+void push(List **head, int item);
+bool pop(List **head, int *item);
+ 
+void parse_strs(List **head, char **strs, int len);
 
 #endif

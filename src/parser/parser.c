@@ -6,31 +6,27 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:01:26 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/15 20:00:53 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/18 15:16:50 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int *parse_strs(char **strs, int len)
+void parse_strs(List **head, char **strs, int len)
 {
 	int i;
+	int j;
 	long value;
-	int *result;
-	
-	i = 1;
-	result = malloc(sizeof(int) * (len - 1));
-	if (!result)
-		return (NULL);
-	while (i < len)
+
+	i = len;
+	j = 0;
+	while (--i > 0)
 	{
 		if (!ft_cst_atol(strs[i], &value))
-			exit_on_error(result);
-		if (!is_valid_number(value) || is_duplicate(result, i - 1, (int) value))
-			exit_on_error(result);
-		result[i - 1] = value;
-		i++;
+			exit_on_error(*head);
+		if (!is_valid_number(value) || is_duplicate(*head , (int) value))
+			exit_on_error(*head);
+		push(head, (int) value);
+		j++;
 	}
-	reverse_collection(result, len - 1);
-	return (result);
 }
