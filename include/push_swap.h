@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:52:39 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/18 13:31:43 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/18 20:55:40 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct List
 {	
 	int value;
+	struct List *previous;
 	struct List *next;
 } List;
 
@@ -31,10 +32,25 @@ typedef struct List
 bool ft_cst_atol(char *str, long *result);
 bool is_valid_number(long x);
 bool is_duplicate(List *head, int x);
-void reverse_collection(int *collection, int len);
 void exit_on_error(List *head);
 
 void free_list(List *head);
+
+void do_sa(List *a);
+void do_sb(List *b);
+void do_ss(List *a, List *b);
+
+void do_pa(List **a, List **b);
+void do_pb(List **a, List **b);
+
+void do_ra(List *a);
+void do_rb(List *b);
+void do_rr(List *a, List *b);
+void do_rra(List *a);
+void do_rrb(List *b);
+void do_rrr(List *a, List *b);
+
+
 
 void push(List **head, int item);
 bool pop(List **head, int *item);

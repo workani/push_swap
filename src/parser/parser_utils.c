@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:03:45 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/18 13:28:55 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/18 17:26:57 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,24 +56,6 @@ bool is_duplicate(List *head, int x)
 		head = head->next;
 	}
 	return (false);
-}
-
-void reverse_collection(int *collection, int len)
-{
-	int temp;
-	int l;
-	int r;
-
-	l = 0;
-	r = len - 1;
-	while (l < r)
-	{
-		temp = collection[l];
-		collection[l] = collection[r];
-		collection[r] = temp;
-		l++;
-		r--;
-	}
 }
 
 void exit_on_error(List *head)
