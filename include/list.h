@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_swap.c                                          :+:      :+:    :+:   */
+/*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 16:55:15 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/19 14:38:33 by dklepenk         ###   ########.fr       */
+/*   Created: 2025/08/19 14:20:33 by dklepenk          #+#    #+#             */
+/*   Updated: 2025/08/19 14:21:04 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
-#include "../../include/ops_base.h"
+#ifndef LIST_H
+#define LIST_H
 
-void do_sa(List *a)
-{
-	ft_printf("sa\n");
-	swap_value(a);
-}
+typedef struct List
+{	
+	int value;
+	struct List *previous;
+	struct List *next;
+} List;
 
-void do_sb(List *b)
-{
-	ft_printf("sb\n");
-	swap_value(b);
-}
-
-void do_ss(List *a, List *b)
-{
-	ft_printf("ss\n");
-	do_sa(a);
-	do_sb(b);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:56:12 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/19 13:55:52 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/19 14:57:06 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,28 @@ void print_stack(List **stack, char *label)
 int main(int argc, char **argv)
 {
 	List *a;
-	//List *b;
+	List *b;
 
 	if (argc == 1)
 		return (1);
 
 	a = NULL;
 	parse_strs(&a, argv, argc);
-	do_rra(a);
+	
+	do_sa(a);
+	do_pb(&a, &b);
+	do_pb(&a, &b);
+	do_pb(&a, &b);
+
+	do_rr(a, b);
+	do_rrr(a, b);
+	
+	do_sa(a);
+	
+	do_pa(&a, &b);
+	do_pa(&a, &b);
+	do_pa(&a, &b);
+	
 	print_stack(&a,  "*** Stack A ***\n");
 	//print_stack(&b,  "*** Stack B ***\n");
 	

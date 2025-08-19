@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:52:39 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/18 20:55:40 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/19 14:21:32 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "../libft/libft.h"
+#include "list.h"
 
 #define I_MAX 2147483647
 #define I_MIN -2147483648
-
-typedef struct List
-{	
-	int value;
-	struct List *previous;
-	struct List *next;
-} List;
-
 
 bool ft_cst_atol(char *str, long *result);
 bool is_valid_number(long x);

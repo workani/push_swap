@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_swap.c                                          :+:      :+:    :+:   */
+/*   op_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 16:55:15 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/19 14:38:33 by dklepenk         ###   ########.fr       */
+/*   Created: 2025/08/19 14:33:18 by dklepenk          #+#    #+#             */
+/*   Updated: 2025/08/19 14:39:26 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 #include "../../include/ops_base.h"
 
-void do_sa(List *a)
+void do_rra(List *a)
 {
-	ft_printf("sa\n");
-	swap_value(a);
+	ft_printf("rra\n");
+	reverse_rotate(a);
 }
 
-void do_sb(List *b)
+void do_rrb(List *b)
 {
-	ft_printf("sb\n");
-	swap_value(b);
+    ft_printf("rra\n");
+	reverse_rotate(b);
 }
 
-void do_ss(List *a, List *b)
+void do_rrr(List *a, List *b)
 {
-	ft_printf("ss\n");
-	do_sa(a);
-	do_sb(b);
+	ft_printf("rrr\n");
+	do_rra(a);
+	do_rrb(b);
 }

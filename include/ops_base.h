@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_swap.c                                          :+:      :+:    :+:   */
+/*   ops_base.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 16:55:15 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/19 14:38:33 by dklepenk         ###   ########.fr       */
+/*   Created: 2025/08/19 14:18:35 by dklepenk          #+#    #+#             */
+/*   Updated: 2025/08/19 14:34:32 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
-#include "../../include/ops_base.h"
+#ifndef OPS_BASE_H
+# define OPS_BASE_H
 
-void do_sa(List *a)
-{
-	ft_printf("sa\n");
-	swap_value(a);
-}
+#include "list.h"
 
-void do_sb(List *b)
-{
-	ft_printf("sb\n");
-	swap_value(b);
-}
+bool push_src_to_dest(List **src, List **dest);
+void swap_value(List *src);
+void rotate(List *src);
+void reverse_rotate(List *src);
 
-void do_ss(List *a, List *b)
-{
-	ft_printf("ss\n");
-	do_sa(a);
-	do_sb(b);
-}
+#endif
