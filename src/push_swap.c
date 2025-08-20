@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:56:12 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/19 14:57:06 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/20 14:56:36 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,9 @@ int main(int argc, char **argv)
 		return (1);
 
 	a = NULL;
+	b = NULL;
 	parse_strs(&a, argv, argc);
-	
-	do_sa(a);
-	do_pb(&a, &b);
-	do_pb(&a, &b);
-	do_pb(&a, &b);
-
-	do_rr(a, b);
-	do_rrr(a, b);
-	
-	do_sa(a);
-	
-	do_pa(&a, &b);
-	do_pa(&a, &b);
-	do_pa(&a, &b);
-	
+	start_sorting(a, b, argc - 1);
 	print_stack(&a,  "*** Stack A ***\n");
 	//print_stack(&b,  "*** Stack B ***\n");
 	
