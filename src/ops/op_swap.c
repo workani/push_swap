@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 16:55:15 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/19 14:38:33 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/20 16:12:09 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void do_sb(List *b)
 void do_ss(List *a, List *b)
 {
 	ft_printf("ss\n");
-	do_sa(a);
-	do_sb(b);
+	swap_value(a);
+	swap_value(b);
 }

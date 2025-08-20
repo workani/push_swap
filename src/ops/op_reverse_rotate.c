@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 14:33:18 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/19 14:39:26 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/20 16:11:33 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void do_rrb(List *b)
 void do_rrr(List *a, List *b)
 {
 	ft_printf("rrr\n");
-	do_rra(a);
-	do_rrb(b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 }
