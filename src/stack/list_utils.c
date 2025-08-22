@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 13:20:02 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/18 13:32:12 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/22 22:43:14 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,19 @@ void free_list(List *head)
 		head = head->next;
 		free(temp);
 	}
+}
+
+int get_list_size(List *a)
+{
+	int size;
+	List *head;
+
+	size = 0;
+	head = a;
+	while (head != NULL)
+	{
+		size++;
+		head = head->next;	
+	}
+	return (size);	
 }

@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:52:39 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/20 14:55:40 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/22 22:44:58 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ bool is_duplicate(List *head, int x);
 void exit_on_error(List *head);
 
 void free_list(List *head);
+int get_list_size(List *a);
 
 void do_sa(List *a);
 void do_sb(List *b);
@@ -45,11 +46,12 @@ void do_rrr(List *a, List *b);
 
 
 
+
 void push(List **head, int item);
 bool pop(List **head, int *item);
 
 List *find_max(List *stack);
-void start_sorting(List *a, List *b, int len);
+void start_sorting(List **a, List **b, int len);
  
 void parse_strs(List **head, char **strs, int len);
 
