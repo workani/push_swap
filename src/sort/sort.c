@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:29:55 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/22 22:47:53 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/22 23:58:23 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void start_sorting(List **a, List **b, int len)
 	{
 		cheapest_element = get_cheapest_element(a, b);
 		execute_moves(a, b, cheapest_element);
+		do_pb(a, b);	
 		len--;
 	}
 }
