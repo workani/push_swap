@@ -43,11 +43,11 @@ void reverse_rotate(List *src)
 	{
     	src = src->next;
 	}
-	while (src->previous != NULL)
+	while (src->prev != NULL)
 	{
 		temp = src->value;
-		src->value = src->previous->value;
-		src->previous->value = temp;
-		src = src->previous;
+		src->value = src->prev->value;
+		src->prev->value = temp;
+		src = src->prev;
 	}
 }

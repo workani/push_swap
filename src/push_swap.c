@@ -6,19 +6,35 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:56:12 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/22 22:45:20 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/25 19:31:46 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+//void print_stack(List **stack, char *label)
+//{
+//	int item = 0;
+//	printf("%s", label);
+//	while (pop(stack, &item))
+//	{
+//		printf("%d\n", item);
+//	}
+//	printf("\n");
+//}
+
 void print_stack(List **stack, char *label)
 {
-	int item = 0;
-	printf("%s", label);
-	while (pop(stack, &item))
+	List *head = *stack;
+	int len = get_list_size(*stack);
+
+	printf("\n=== %s (size=%d) ===\n", label, len);
+    printf("  pos  | pos_pair | cost_a | cost_b | value\n"
+           "-------+--------+--------+------\n");
+	while (head != NULL)
 	{
-		printf("%d\n", item);
+		 printf("%6d | %6d  | %6d | %6d | %6d\n", head->pos, head->pair_pos, head->cost_a, head->cost_b, head->value);
+        head = head->next;  
 	}
 	printf("\n");
 }
@@ -36,24 +52,26 @@ int main(int argc, char **argv)
 	b = NULL;
 	parse_strs(&a, argv, argc);
 	start_sorting(&a, &b, argc - 1);
-	print_stack(&a,  "*** Stack A ***\n");
-	print_stack(&b,  "*** Stack B ***\n");
+	print_stack(&a,  "Stack A");
+	print_stack(&b,  "Stack B");
 	
 }
 
 
 
-//int main()
+//int main(void)
 //{
-//	List *a;
-//	//List *b;
+//    List *a;
+//    List *b;
 
-//	char *numbers[9] = {"dfsdfd", "5", "1", "2", "3", "4", "6", "7", "8"};
+//    char *numbers[10] = {"push_swap", "5", "2", "7", "1", "6", "3", "9", "4", "8"};
 
-//	a = NULL;
-//	parse_strs(&a, numbers, 9);
-//	do_ra(a);
-//	print_stack(&a,  "*** Stack A ***\n");
-//	//print_stack(&b,  "*** Stack B ***\n");
-	
+//    a = NULL;
+//    b = NULL;
+//    parse_strs(&a, numbers, 9);
+//    start_sorting(&a, &b, 9);
+//    print_stack(&a, "Stack A");
+//    print_stack(&b, "Stack B");
+
+//    return 0;
 //}

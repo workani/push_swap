@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:52:39 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/22 22:44:58 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/25 14:43:17 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void do_rrb(List *b);
 void do_rrr(List *a, List *b);
 
 
-
-
 void push(List **head, int item);
 bool pop(List **head, int *item);
 
 List *find_max(List *stack);
+void assign_cost_and_position(List *stack, bool is_a);
+
 void start_sorting(List **a, List **b, int len);
  
 void parse_strs(List **head, char **strs, int len);

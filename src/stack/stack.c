@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:06:10 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/18 16:53:32 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/25 14:42:18 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void push(List **head, int value)
 		return;
 	node->value = value;
 	node->next = *head;
-	node->previous = NULL;
+	node->prev = NULL;
 	if (*head)
-		(*head)->previous = node;
+		(*head)->prev = node;
 	*head = node;
 }
 
@@ -37,9 +37,7 @@ bool pop(List **head, int *item)
 	*item = temp->value; 
 	*head = temp->next;
 	if (*head)
-		(*head)->previous = NULL;
+		(*head)->prev = NULL;
 	free(temp);
 	return (true);	
 }
-
-

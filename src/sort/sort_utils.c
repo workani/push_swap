@@ -6,11 +6,43 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:42:49 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/23 00:01:08 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/25 19:10:15 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+#include <math.h>
+
+static void set_cost(List *item, bool is_a, int cost)
+{
+	if (is_a)
+		item->cost_a = cost;
+	else
+		item->cost_b = cost;
+}
+
+void assign_cost_and_position(List *stack, bool is_a)
+{
+    int len = get_list_size(stack);
+    int idx = 0;
+    List *cur = stack;
+
+    while (cur)
+    {
+        int pos;
+
+        if (idx <= len / 2)
+            pos = idx;             // rotate forward
+        else
+            pos = idx - len;       // rotate backward (negative)
+
+        cur->pos = pos;
+        set_cost(cur, is_a, (pos < 0) ? -pos : pos);
+
+        cur = cur->next;
+        idx++;
+    }
+}
 
 List *find_max(List *stack)
 {
@@ -26,41 +58,7 @@ List *find_max(List *stack)
 	return (max);
 }
 
-void execute_moves(List *a, List *b, List *target)
-{
-	if (!a || !b || target)
-		return ;
-	while (target->pos < 0 && target->pair_pos < 0)
-	{
-		do_rrr(a, b);
-		target->pos++;
-		target->pair_pos++;
-	}
-	while (target->pos > 0 && target->pair_pos > 0)
-	{
-		do_rr(a, b);
-		target->pos--;
-		target->pair_pos--;
-	}
-	if (target->pos > 0)
-		execute_moves_helper(a, target->pos, false);
-	else if (target->pos < 0)
-		execute_moves_helper(a, (target->pos * -1), false);
-	if (target->pair_pos > 0)
-		execute_moves_helper(b, target->pair_pos, true);
-	else if (target->pair_pos < 0)
-		execute_moves_helper(b, (target->pair_pos * -1), true);
-	target->pos = 0;
-	target->pair_pos = 0;
-}
 
-static void execute_moves_helper(List *stack, int moves_count, bool is_a)
-{
-    while (moves_count--)
-    {
-        if (is_a)
-            do_ra(stack);
-        else
-            do_rb(stack);
-    }
-}
+
+
+
