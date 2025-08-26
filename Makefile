@@ -15,7 +15,7 @@ PARSER_DIR = src/parser
 
 OBJS_DIR = obj
 
-SRCS = $(OPS_DIR)/ops_base.c $(OPS_DIR)/op_push.c $(OPS_DIR)/op_rotate.c \
+SRCS = $(OPS_DIR)/ops_base.c $(OPS_DIR)/ops_execute.c $(OPS_DIR)/op_push.c $(OPS_DIR)/op_rotate.c \
 	   $(OPS_DIR)/op_swap.c $(OPS_DIR)/op_reverse_rotate.c $(SRC_DIR)/push_swap.c \
 	   $(PARSER_DIR)/parser_utils.c $(PARSER_DIR)/parser.c \
 	   $(SORT_DIR)/sort_utils.c $(SORT_DIR)/sort.c \

@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:56:12 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/25 19:31:46 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/26 15:55:57 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ int main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	parse_strs(&a, argv, argc);
-	start_sorting(&a, &b, argc - 1);
+	sort(&a, &b, argc - 1);
 	print_stack(&a,  "Stack A");
 	print_stack(&b,  "Stack B");
-	
 }
 
 

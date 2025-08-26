@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ops_base.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/25 21:11:42 by dklepenk          #+#    #+#             */
+/*   Updated: 2025/08/25 21:11:43 by dklepenk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 #include "../../include/ops_base.h"
 
@@ -49,5 +61,24 @@ void reverse_rotate(List *src)
 		src->value = src->prev->value;
 		src->prev->value = temp;
 		src = src->prev;
+	}
+}
+
+void execute_move(List *stack, int pos, char stack_name)
+{
+	while (pos != 0)
+	{
+		if (pos > 0)
+		{
+			ft_printf("r%c\n", stack_name);
+			rotate(stack);
+			pos--;
+		}
+		else
+		{
+			ft_printf("rr%c\n", stack_name);
+			reverse_rotate(stack);
+			pos++;
+		}
 	}
 }
