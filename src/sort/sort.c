@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:29:55 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/26 19:43:23 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/26 21:35:58 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,29 @@ List *find_larger_than(List *stack, int x)
 	return (result);
 }
 
+int caculate_cost(List *item)
+{
+	int cost;
+	int pos;
+	int pair_pos;
+
+	cost = item->cost_a + item->cost_b;
+	pos = item->pos;
+	pair_pos = item->pair_pos;
+	while (pos < 0 && pair_pos < 0)
+	{
+		pos++;
+		pair_pos++;
+		cost--;
+	}
+	while (pos > 0 && pair_pos > 0)
+	{
+		pos--;
+		pair_pos--;
+		cost--;
+	}
+	return (cost);
+}
 
 List *get_cheapest_element(List *stack)
 {
@@ -97,7 +120,7 @@ List *get_cheapest_element(List *stack)
 	cheapest_cost = INT_MAX;
 	while (stack != NULL)
 	{
-		new_cost = stack->cost_a + stack->cost_b;
+		new_cost = caculate_cost(stack);
 		if (new_cost < cheapest_cost)
 		{
 			cheapest_cost = new_cost;
@@ -108,12 +131,30 @@ List *get_cheapest_element(List *stack)
 	return (result);
 }
 
-void execute_moves(List *a, List *b, List *target)
-{
-	if (!a || !b || !target)
-		return ;
-	execute_move_on_a(a, target->pos);
-	execute_move_on_b(b, target->pair_pos);
+void execute_moves(List *a, List *b, List *target, bool sorting_a)
+{	
+	while (target->pos < 0 && target->pair_pos < 0)
+	{
+		do_rrr(a, b);
+		target->pos++;
+		target->pair_pos++;
+	}
+	while (target->pos > 0 && target->pair_pos > 0)
+	{
+		do_rr(a, b);
+		target->pos--;
+		target->pair_pos--;
+	}
+	if (sorting_a)
+	{
+		execute_move_on_a(a, target->pair_pos);
+		execute_move_on_b(b, target->pos);
+	}
+	else
+	{
+		execute_move_on_a(a, target->pos);
+		execute_move_on_b(b, target->pair_pos);
+	}
 	target->pos = 0;
 	target->pair_pos = 0;
 }
@@ -158,16 +199,6 @@ void set_cost_and_pairs(List *a, List *b)
 	find_and_set_pairs(a, b);
 }
 
-void execute_moves_b(List *a, List *b, List *target)
-{
-	if (!a || !b || !target)
-		return ;
-	execute_move_on_b(b, target->pos);
-	execute_move_on_a(a, target->pair_pos);
-	target->pos = 0;
-	target->pair_pos = 0;
-}
-
 void find_and_set_pairs_b(List *a, List *b)
 {
 	List *pair;
@@ -194,7 +225,7 @@ void sort_a(List **a, List **b)
     	assign_cost_and_position(*b, false);
 		find_and_set_pairs_b(*a, *b);
 		cheapest_element = get_cheapest_element(*b);
-		execute_moves_b(*a, *b, cheapest_element);
+		execute_moves(*a, *b, cheapest_element, true);
 		do_pa(a, b);
 	}
 	assign_cost_and_position(*a, true);
@@ -215,7 +246,7 @@ void sort(List **a, List **b, int a_len)
 	{
 		set_cost_and_pairs(*a, *b);
 		cheapest_element = get_cheapest_element(*a);
-		execute_moves(*a, *b, cheapest_element);
+		execute_moves(*a, *b, cheapest_element, false);
 		do_pb(a, b);
 		a_len--;
 	}
