@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:52:39 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/26 15:56:01 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/26 19:28:04 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ void assign_cost_and_position(List *stack, bool is_a);
 void sort(List **a, List **b, int len);
  
 void parse_strs(List **head, char **strs, int len);
+
+void print_stack(List *stack, char *label);
 
 #endif

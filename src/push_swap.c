@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:56:12 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/26 15:55:57 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/26 19:28:19 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 //	printf("\n");
 //}
 
-void print_stack(List **stack, char *label)
+void print_stack(List *stack, char *label)
 {
-	List *head = *stack;
-	int len = get_list_size(*stack);
+	List *head = stack;
+	int len = get_list_size(stack);
 
 	printf("\n=== %s (size=%d) ===\n", label, len);
     printf("  pos  | pos_pair | cost_a | cost_b | value\n"
@@ -52,8 +52,6 @@ int main(int argc, char **argv)
 	b = NULL;
 	parse_strs(&a, argv, argc);
 	sort(&a, &b, argc - 1);
-	print_stack(&a,  "Stack A");
-	print_stack(&b,  "Stack B");
 }
 
 
