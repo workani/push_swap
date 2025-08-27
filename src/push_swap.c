@@ -6,22 +6,12 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:56:12 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 16:08:44 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 18:17:13 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// void print_stack(List **stack, char *label)
-//{
-//	int item = 0;
-//	printf("%s", label);
-//	while (pop(stack, &item))
-//	{
-//		printf("%d\n", item);
-//	}
-//	printf("\n");
-//}
 
 void	print_stack(List *stack, char *label)
 {
@@ -42,36 +32,34 @@ void	print_stack(List *stack, char *label)
 	printf("\n");
 }
 
+
 int	main(int argc, char **argv)
 {
 	List	*a;
 	List	*b;
+	char **strs;
+	int len;
 
 	if (argc == 1)
-		return (1);
+		return (0);
 	a = NULL;
 	b = NULL;
-	parse_strs(&a, argv, argc);
-	sort(&a, &b, argc - 1);
-
-	//print_stack(a,  "Stack A");
-	//print_stack(b,  "Stack B");
+	len = argc;
+	if (argc == 2)
+	{
+		strs = ft_split(argv[1], ' ');
+		len = get_str_arr_len(strs);
+		parse_strs(&a, strs, len);
+		free_str_array(strs);
+	}
+	else
+	{
+		len = argc - 1;
+		parse_strs(&a, argv, len);
+	}
+	sort(&a, &b, len);
+	//print_stack(a, "Stack A");
+	//print_stack(b, "Stack B");
+	free_list(a);
+	free_list(b);
 }
-
-// int main(void)
-//{
-//    List *a;
-//    List *b;
-
-//    char *numbers[10] = {"push_swap", "5", "2", "7", "1", "6", "3", "9", "4",
-	//"8"};
-
-//    a = NULL;
-//    b = NULL;
-//    parse_strs(&a, numbers, 9);
-//    start_sorting(&a, &b, 9);
-//    print_stack(&a, "Stack A");
-//    print_stack(&b, "Stack B");
-
-//    return (0);
-//}
