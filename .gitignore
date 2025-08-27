@@ -4,6 +4,7 @@
 # Ignore compiled binary files
 **/*.o
 **/*.a
+obj/
 a.out
 push_swap
 

@@ -6,21 +6,31 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:01:26 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 18:00:00 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:40:11 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	parse_strs(List **head, char **strs, int len)
+
+int set_stop_point( bool is_single_str)
+{
+	if (is_single_str)
+		return (0);
+	return (1);
+}
+
+void	parse_strs(List **head, char **strs, int len, bool is_single_str)
 {
 	int		i;
 	int		j;
 	long	value;
+	int stop;
 
 	i = len;
 	j = 0;
-	while (i-- > 0)
+	stop = set_stop_point(is_single_str);
+	while (--i >= stop)
 	{
 		if (!ft_cst_atol(strs[i], &value))
 			exit_on_error(*head);

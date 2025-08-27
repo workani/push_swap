@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 13:20:02 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/25 14:43:12 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 18:56:17 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,15 @@ int	get_list_size(List *a)
 		head = head->next;
 	}
 	return (size);
+}
+
+bool is_sorted(List *stack)
+{
+	while (stack != NULL && stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
 }

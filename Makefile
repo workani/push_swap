@@ -17,9 +17,9 @@ OBJS_DIR = obj
 
 SRCS = $(OPS_DIR)/ops_base.c $(OPS_DIR)/ops_execute.c $(OPS_DIR)/op_push.c $(OPS_DIR)/op_rotate.c \
 	   $(OPS_DIR)/op_swap.c $(OPS_DIR)/op_reverse_rotate.c $(SRC_DIR)/push_swap.c \
-	   $(PARSER_DIR)/parser_utils.c $(SORT_DIR)/sort_utils.c $(SRC_DIR)/generic_utils.c \
-	   $(PARSER_DIR)/parser.c $(SORT_DIR)/sort.c \
-	   $(STACK_DIR)/stack.c  $(STACK_DIR)/list_utils.c
+	   $(STACK_DIR)/stack.c  $(STACK_DIR)/list_utils.c $(STACK_DIR)/list_search_utils.c \
+	   $(SORT_DIR)/sort_utils.c $(SORT_DIR)/sort.c \$(SORT_DIR)/sort_cost_utils.c \
+	   $(PARSER_DIR)/parser_utils.c $(PARSER_DIR)/parser.c $(SRC_DIR)/generic_utils.c 
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 

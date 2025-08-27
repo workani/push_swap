@@ -6,12 +6,27 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:42:49 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/25 19:10:15 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:03:25 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-#include <math.h>
+
+void	put_max_on_top(List *b)
+{
+	List	*max;
+
+	max = find_max(b);
+	execute_move_on_b(b, max->pos);
+}
+
+void	put_min_on_top(List *a)
+{
+	List	*min;
+
+	min = find_min(a);
+	execute_move_on_a(a, min->pos);
+}
 
 static void	set_cost(List *item, bool is_a, int cost)
 {
@@ -20,40 +35,23 @@ static void	set_cost(List *item, bool is_a, int cost)
 	else
 		item->cost_b = cost;
 }
-
 void	assign_cost_and_position(List *stack, bool is_a)
 {
 	int		len;
-	int		idx;
-	List	*cur;
-		int pos;
+	int		i;
+	int 	pos;
 
 	len = get_list_size(stack);
-	idx = 0;
-	cur = stack;
-	while (cur)
+	i = 0;
+	while (stack)
 	{
-		if (idx <= len / 2)
-			pos = idx; // rotate forward
+		if (i <= len / 2)
+			pos = i;
 		else
-			pos = idx - len; // rotate backward (negative)
-		cur->pos = pos;
-		set_cost(cur, is_a, (pos < 0) ? -pos : pos);
-		cur = cur->next;
-		idx++;
-	}
-}
-
-List	*find_max(List *stack)
-{
-	List	*max;
-
-	max = stack;
-	while (stack != NULL)
-	{
-		if (stack->value > max->value)
-			max = stack;
+			pos = i - len;
+		stack->pos = pos;
+		set_cost(stack, is_a, ft_abs(pos));
 		stack = stack->next;
+		i++;
 	}
-	return (max);
 }

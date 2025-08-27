@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:01:33 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 18:16:09 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:02:34 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,11 @@ void free_str_array(char **strs)
 		i++;
 	}
 	free(strs);
+}
+
+int ft_abs(int x)
+{
+	if (x < 0)
+		return (x * -1);
+	return (x);
 }
