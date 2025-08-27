@@ -12,13 +12,13 @@
 
 #include "../../include/push_swap.h"
 
-
-void push(List **head, int value)
+void	push(List **head, int value)
 {
-	List *node;
+	List	*node;
+
 	node = malloc(sizeof(List));
 	if (!node)
-		return;
+		return ;
 	node->value = value;
 	node->next = *head;
 	node->prev = NULL;
@@ -27,17 +27,17 @@ void push(List **head, int value)
 	*head = node;
 }
 
-bool pop(List **head, int *item)
+bool	pop(List **head, int *item)
 {
-	List *temp;
-	
+	List	*temp;
+
 	if (!(*head))
 		return (false);
 	temp = *head;
-	*item = temp->value; 
+	*item = temp->value;
 	*head = temp->next;
 	if (*head)
 		(*head)->prev = NULL;
 	free(temp);
-	return (true);	
+	return (true);
 }

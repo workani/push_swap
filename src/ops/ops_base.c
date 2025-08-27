@@ -6,54 +6,52 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 21:11:42 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/25 21:11:43 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 16:07:50 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
 #include "../../include/ops_base.h"
+#include "../../include/push_swap.h"
 
-bool push_src_to_dest(List **src, List **dest)
+bool	push_src_to_dest(List **src, List **dest)
 {
-	int item;
-	
+	int	item;
+
 	if (!pop(src, &item))
 		return (false);
 	push(dest, item);
 	return (true);
 }
 
-void swap_value(List *src)
+void	swap_value(List *src)
 {
-	int tmp;
+	int	tmp;
 
-	ft_printf("sa\n");
 	tmp = src->value;
 	src->value = src->next->value;
 	src->next->value = tmp;
 }
 
-void rotate(List *src)
+void	rotate(List *src)
 {
-	int temp;
-	
+	int	temp;
+
 	while (src != NULL && src->next != NULL)
 	{
 		temp = src->value;
 		src->value = src->next->value;
 		src->next->value = temp;
 		src = src->next;
-	}	
+	}
 }
 
-
-void reverse_rotate(List *src)
+void	reverse_rotate(List *src)
 {
-	int temp;
-	
+	int	temp;
+
 	while (src->next != NULL)
 	{
-    	src = src->next;
+		src = src->next;
 	}
 	while (src->prev != NULL)
 	{
@@ -64,7 +62,7 @@ void reverse_rotate(List *src)
 	}
 }
 
-void execute_move(List *stack, int pos, char stack_name)
+void	execute_move(List *stack, int pos, char stack_name)
 {
 	while (pos != 0)
 	{

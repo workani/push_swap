@@ -58,4 +58,3 @@ int	ft_printf(const char *str, ...)
 	}
 	return (count);
 }
-

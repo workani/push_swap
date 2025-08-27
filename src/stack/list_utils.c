@@ -12,10 +12,10 @@
 
 #include "../../include/push_swap.h"
 
-void free_list(List *head)
+void	free_list(List *head)
 {
-	List *temp;
-	
+	List	*temp;
+
 	while (head)
 	{
 		temp = head;
@@ -24,17 +24,17 @@ void free_list(List *head)
 	}
 }
 
-int get_list_size(List *a)
+int	get_list_size(List *a)
 {
-	int size;
-	List *head;
+	int		size;
+	List	*head;
 
 	size = 0;
 	head = a;
 	while (head != NULL)
 	{
 		size++;
-		head = head->next;	
+		head = head->next;
 	}
-	return (size);	
+	return (size);
 }

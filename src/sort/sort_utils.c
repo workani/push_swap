@@ -13,7 +13,7 @@
 #include "../../include/push_swap.h"
 #include <math.h>
 
-static void set_cost(List *item, bool is_a, int cost)
+static void	set_cost(List *item, bool is_a, int cost)
 {
 	if (is_a)
 		item->cost_a = cost;
@@ -21,33 +21,33 @@ static void set_cost(List *item, bool is_a, int cost)
 		item->cost_b = cost;
 }
 
-void assign_cost_and_position(List *stack, bool is_a)
+void	assign_cost_and_position(List *stack, bool is_a)
 {
-    int len = get_list_size(stack);
-    int idx = 0;
-    List *cur = stack;
+	int		len;
+	int		idx;
+	List	*cur;
+		int pos;
 
-    while (cur)
-    {
-        int pos;
-
-        if (idx <= len / 2)
-            pos = idx;             // rotate forward
-        else
-            pos = idx - len;       // rotate backward (negative)
-
-        cur->pos = pos;
-        set_cost(cur, is_a, (pos < 0) ? -pos : pos);
-
-        cur = cur->next;
-        idx++;
-    }
+	len = get_list_size(stack);
+	idx = 0;
+	cur = stack;
+	while (cur)
+	{
+		if (idx <= len / 2)
+			pos = idx; // rotate forward
+		else
+			pos = idx - len; // rotate backward (negative)
+		cur->pos = pos;
+		set_cost(cur, is_a, (pos < 0) ? -pos : pos);
+		cur = cur->next;
+		idx++;
+	}
 }
 
-List *find_max(List *stack)
+List	*find_max(List *stack)
 {
-	List *max;
-	
+	List	*max;
+
 	max = stack;
 	while (stack != NULL)
 	{
@@ -57,8 +57,3 @@ List *find_max(List *stack)
 	}
 	return (max);
 }
-
-
-
-
-

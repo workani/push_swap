@@ -6,13 +6,13 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:56:12 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/26 19:28:19 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 16:08:44 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-//void print_stack(List **stack, char *label)
+// void print_stack(List **stack, char *label)
 //{
 //	int item = 0;
 //	printf("%s", label);
@@ -23,45 +23,48 @@
 //	printf("\n");
 //}
 
-void print_stack(List *stack, char *label)
+void	print_stack(List *stack, char *label)
 {
-	List *head = stack;
-	int len = get_list_size(stack);
+	List	*head;
+	int		len;
 
+	head = stack;
+	len = get_list_size(stack);
 	printf("\n=== %s (size=%d) ===\n", label, len);
-    printf("  pos  | pos_pair | cost_a | cost_b | value\n"
-           "-------+--------+--------+------\n");
+	printf("  pos  | pos_pair | cost_a | cost_b | value\n"
+			"-------+--------+--------+------\n");
 	while (head != NULL)
 	{
-		 printf("%6d | %6d  | %6d | %6d | %6d\n", head->pos, head->pair_pos, head->cost_a, head->cost_b, head->value);
-        head = head->next;  
+		printf("%6d | %6d  | %6d | %6d | %6d\n", head->pos, head->pair_pos,
+			head->cost_a, head->cost_b, head->value);
+		head = head->next;
 	}
 	printf("\n");
 }
 
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	List *a;
-	List *b;
+	List	*a;
+	List	*b;
 
 	if (argc == 1)
 		return (1);
-
 	a = NULL;
 	b = NULL;
 	parse_strs(&a, argv, argc);
 	sort(&a, &b, argc - 1);
+
+	//print_stack(a,  "Stack A");
+	//print_stack(b,  "Stack B");
 }
 
-
-
-//int main(void)
+// int main(void)
 //{
 //    List *a;
 //    List *b;
 
-//    char *numbers[10] = {"push_swap", "5", "2", "7", "1", "6", "3", "9", "4", "8"};
+//    char *numbers[10] = {"push_swap", "5", "2", "7", "1", "6", "3", "9", "4",
+	//"8"};
 
 //    a = NULL;
 //    b = NULL;
@@ -70,5 +73,5 @@ int main(int argc, char **argv)
 //    print_stack(&a, "Stack A");
 //    print_stack(&b, "Stack B");
 
-//    return 0;
+//    return (0);
 //}

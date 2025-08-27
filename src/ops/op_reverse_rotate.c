@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
 #include "../../include/ops_base.h"
+#include "../../include/push_swap.h"
 
-void do_rra(List *a)
+void	do_rra(List *a)
 {
 	ft_printf("rra\n");
 	reverse_rotate(a);
 }
 
-void do_rrb(List *b)
+void	do_rrb(List *b)
 {
-    ft_printf("rra\n");
+	ft_printf("rra\n");
 	reverse_rotate(b);
 }
 
-void do_rrr(List *a, List *b)
+void	do_rrr(List *a, List *b)
 {
 	ft_printf("rrr\n");
 	reverse_rotate(a);

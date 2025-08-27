@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
 #include "../../include/ops_base.h"
+#include "../../include/push_swap.h"
 
-void execute_move_on_a(List *a, int pos)
+void	execute_move_on_a(List *a, int pos)
 {
 	execute_move(a, pos, 'a');
 }
 
-void execute_move_on_b(List *b, int pos)
+void	execute_move_on_b(List *b, int pos)
 {
 	execute_move(b, pos, 'b');
 }

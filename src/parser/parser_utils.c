@@ -12,10 +12,10 @@
 
 #include "../../include/push_swap.h"
 
-bool ft_cst_atol(char *str, long *result)
+bool	ft_cst_atol(char *str, long *result)
 {
-	int i;
-	int sign;
+	int	i;
+	int	sign;
 
 	i = 0;
 	sign = 1;
@@ -40,14 +40,14 @@ bool ft_cst_atol(char *str, long *result)
 	*result = *result * sign;
 	return (true);
 }
-bool is_valid_number(long x)
+bool	is_valid_number(long x)
 {
 	if (x < INT_MIN || x > INT_MAX)
 		return (false);
 	return (true);
-	}
+}
 
-bool is_duplicate(List *head, int x)
+bool	is_duplicate(List *head, int x)
 {
 	while (head != NULL)
 	{
@@ -58,7 +58,7 @@ bool is_duplicate(List *head, int x)
 	return (false);
 }
 
-void exit_on_error(List *head)
+void	exit_on_error(List *head)
 {
 	free_list(head);
 	ft_printf("\033[0;31mERROR: Invalid input detected. Terminating...\033[0m\n");

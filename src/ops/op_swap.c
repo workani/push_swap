@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
 #include "../../include/ops_base.h"
+#include "../../include/push_swap.h"
 
-void do_sa(List *a)
+void	do_sa(List *a)
 {
 	ft_printf("sa\n");
 	swap_value(a);
 }
 
-void do_sb(List *b)
+void	do_sb(List *b)
 {
 	ft_printf("sb\n");
 	swap_value(b);
 }
 
-void do_ss(List *a, List *b)
+void	do_ss(List *a, List *b)
 {
 	ft_printf("ss\n");
 	swap_value(a);
