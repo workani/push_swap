@@ -6,24 +6,24 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 21:12:18 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 18:49:40 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 20:12:07 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ops_base.h"
 #include "../../include/push_swap.h"
 
-void	execute_move_on_a(List *a, int pos)
+void	execute_move_on_a(t_list *a, int pos)
 {
 	execute_move(a, pos, 'a');
 }
 
-void	execute_move_on_b(List *b, int pos)
+void	execute_move_on_b(t_list *b, int pos)
 {
 	execute_move(b, pos, 'b');
 }
 
-void	execute_moves(List *a, List *b, List *target, bool sorting_a)
+void	execute_moves(t_list *a, t_list *b, t_list *target, bool sorting_a)
 {
 	while (target->pos < 0 && target->pair_pos < 0)
 	{

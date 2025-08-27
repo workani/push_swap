@@ -6,19 +6,18 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:56:12 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 19:41:38 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 20:08:46 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-
 int	main(int argc, char **argv)
 {
-	List	*a;
-	List	*b;
-	char **strs;
-	int len;
+	t_list	*a;
+	t_list	*b;
+	char	**strs;
+	int		len;
 
 	if (argc == 1)
 		return (0);
@@ -39,9 +38,9 @@ int	main(int argc, char **argv)
 	free_list(b);
 }
 
-//void	print_stack(List *stack, char *label)
+//void	print_stack(t_list *stack, char *label)
 //{
-//	List	*head;
+//	t_list	*head;
 //	int		len;
 
 //	head = stack;

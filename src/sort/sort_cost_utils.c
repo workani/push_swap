@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_cost_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/27 20:01:07 by dklepenk          #+#    #+#             */
+/*   Updated: 2025/08/27 20:14:24 by dklepenk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 
-int	caculate_cost(List *item)
+int	calculate_cost(t_list *item)
 {
 	int	cost;
 	int	pos;
@@ -24,9 +36,9 @@ int	caculate_cost(List *item)
 	return (cost);
 }
 
-void	find_and_set_pairs_b(List *a, List *b)
+void	find_and_set_pairs_b(t_list *a, t_list *b)
 {
-	List	*pair;
+	t_list	*pair;
 
 	while (a != NULL)
 	{
@@ -39,10 +51,9 @@ void	find_and_set_pairs_b(List *a, List *b)
 	}
 }
 
-
-void	find_and_set_pairs_a(List *a, List *b)
+void	find_and_set_pairs_a(t_list *a, t_list *b)
 {
-	List	*pair;
+	t_list	*pair;
 
 	while (b != NULL)
 	{
@@ -55,17 +66,16 @@ void	find_and_set_pairs_a(List *a, List *b)
 	}
 }
 
-
-List	*get_cheapest_element(List *stack)
+t_list	*get_cheapest_element(t_list *stack)
 {
-	List	*result;
+	t_list	*result;
 	int		cheapest_cost;
 	int		new_cost;
 
 	cheapest_cost = INT_MAX;
 	while (stack != NULL)
 	{
-		new_cost = caculate_cost(stack);
+		new_cost = calculate_cost(stack);
 		if (new_cost < cheapest_cost)
 		{
 			cheapest_cost = new_cost;
@@ -75,7 +85,8 @@ List	*get_cheapest_element(List *stack)
 	}
 	return (result);
 }
-void	set_cost_and_pairs(List *a, List *b, bool sorting_a)
+
+void	set_cost_and_pairs(t_list *a, t_list *b, bool sorting_a)
 {
 	assign_cost_and_position(a, true);
 	assign_cost_and_position(b, false);

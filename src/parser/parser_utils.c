@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:03:45 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/18 17:26:57 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 20:13:00 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ bool	ft_cst_atol(char *str, long *result)
 	*result = *result * sign;
 	return (true);
 }
+
 bool	is_valid_number(long x)
 {
 	if (x < INT_MIN || x > INT_MAX)
@@ -47,7 +48,7 @@ bool	is_valid_number(long x)
 	return (true);
 }
 
-bool	is_duplicate(List *head, int x)
+bool	is_duplicate(t_list *head, int x)
 {
 	while (head != NULL)
 	{
@@ -58,9 +59,9 @@ bool	is_duplicate(List *head, int x)
 	return (false);
 }
 
-void	exit_on_error(List *head)
+void	exit_on_error(t_list *head)
 {
 	free_list(head);
-	ft_printf("\033[0;31mERROR: Invalid input detected. Terminating...\033[0m\n");
+	ft_printf("Error\n");
 	exit(1);
 }

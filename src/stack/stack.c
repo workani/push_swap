@@ -6,17 +6,17 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:06:10 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/25 14:42:18 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:57:13 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	push(List **head, int value)
+void	push(t_list **head, int value)
 {
-	List	*node;
+	t_list	*node;
 
-	node = malloc(sizeof(List));
+	node = malloc(sizeof(t_list));
 	if (!node)
 		return ;
 	node->value = value;
@@ -27,9 +27,9 @@ void	push(List **head, int value)
 	*head = node;
 }
 
-bool	pop(List **head, int *item)
+bool	pop(t_list **head, int *item)
 {
-	List	*temp;
+	t_list	*temp;
 
 	if (!(*head))
 		return (false);

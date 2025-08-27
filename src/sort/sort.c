@@ -6,15 +6,15 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:29:55 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 19:12:57 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 20:14:12 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	small_sort(List *stack, int len)
+static void	small_sort(t_list *stack, int len)
 {
-	List	*max;
+	t_list	*max;
 
 	max = find_max(stack);
 	if (len == 1)
@@ -35,10 +35,9 @@ static void	small_sort(List *stack, int len)
 	}
 }
 
-
-void	sort_a(List **a, List **b)
+void	sort_a(t_list **a, t_list **b)
 {
-	List	*cheapest_element;
+	t_list	*cheapest_element;
 	int		b_len;
 
 	b_len = get_list_size(*b);
@@ -53,10 +52,9 @@ void	sort_a(List **a, List **b)
 	put_min_on_top(*a);
 }
 
-
-void	sort(List **a, List **b, int a_len)
+void	sort(t_list **a, t_list **b, int a_len)
 {
-	List	*cheapest_element;
+	t_list	*cheapest_element;
 
 	if (is_sorted(*a))
 		return ;

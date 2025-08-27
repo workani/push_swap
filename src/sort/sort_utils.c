@@ -6,40 +6,41 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:42:49 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 19:03:25 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 20:13:47 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	put_max_on_top(List *b)
+void	put_max_on_top(t_list *b)
 {
-	List	*max;
+	t_list	*max;
 
 	max = find_max(b);
 	execute_move_on_b(b, max->pos);
 }
 
-void	put_min_on_top(List *a)
+void	put_min_on_top(t_list *a)
 {
-	List	*min;
+	t_list	*min;
 
 	min = find_min(a);
 	execute_move_on_a(a, min->pos);
 }
 
-static void	set_cost(List *item, bool is_a, int cost)
+static void	set_cost(t_list *item, bool is_a, int cost)
 {
 	if (is_a)
 		item->cost_a = cost;
 	else
 		item->cost_b = cost;
 }
-void	assign_cost_and_position(List *stack, bool is_a)
+
+void	assign_cost_and_position(t_list *stack, bool is_a)
 {
 	int		len;
 	int		i;
-	int 	pos;
+	int		pos;
 
 	len = get_list_size(stack);
 	i = 0;

@@ -6,15 +6,15 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 13:20:02 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 18:56:17 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 20:11:05 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	free_list(List *head)
+void	free_list(t_list *head)
 {
-	List	*temp;
+	t_list	*temp;
 
 	while (head)
 	{
@@ -24,10 +24,10 @@ void	free_list(List *head)
 	}
 }
 
-int	get_list_size(List *a)
+int	get_list_size(t_list *a)
 {
 	int		size;
-	List	*head;
+	t_list	*head;
 
 	size = 0;
 	head = a;
@@ -39,7 +39,7 @@ int	get_list_size(List *a)
 	return (size);
 }
 
-bool is_sorted(List *stack)
+bool	is_sorted(t_list *stack)
 {
 	while (stack != NULL && stack->next != NULL)
 	{

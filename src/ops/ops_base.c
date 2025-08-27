@@ -6,14 +6,14 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 21:11:42 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 16:07:50 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 20:11:57 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ops_base.h"
 #include "../../include/push_swap.h"
 
-bool	push_src_to_dest(List **src, List **dest)
+bool	push_src_to_dest(t_list **src, t_list **dest)
 {
 	int	item;
 
@@ -23,7 +23,7 @@ bool	push_src_to_dest(List **src, List **dest)
 	return (true);
 }
 
-void	swap_value(List *src)
+void	swap_value(t_list *src)
 {
 	int	tmp;
 
@@ -32,7 +32,7 @@ void	swap_value(List *src)
 	src->next->value = tmp;
 }
 
-void	rotate(List *src)
+void	rotate(t_list *src)
 {
 	int	temp;
 
@@ -45,7 +45,7 @@ void	rotate(List *src)
 	}
 }
 
-void	reverse_rotate(List *src)
+void	reverse_rotate(t_list *src)
 {
 	int	temp;
 
@@ -62,7 +62,7 @@ void	reverse_rotate(List *src)
 	}
 }
 
-void	execute_move(List *stack, int pos, char stack_name)
+void	execute_move(t_list *stack, int pos, char stack_name)
 {
 	while (pos != 0)
 	{

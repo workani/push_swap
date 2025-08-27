@@ -6,15 +6,15 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:47:01 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 19:03:49 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/08/27 20:11:18 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-List	*find_max(List *stack)
+t_list	*find_max(t_list *stack)
 {
-	List	*max;
+	t_list	*max;
 
 	max = stack;
 	while (stack != NULL)
@@ -26,9 +26,9 @@ List	*find_max(List *stack)
 	return (max);
 }
 
-List	*find_min(List *stack)
+t_list	*find_min(t_list *stack)
 {
-	List	*min;
+	t_list	*min;
 
 	min = stack;
 	while (stack != NULL)
@@ -40,9 +40,9 @@ List	*find_min(List *stack)
 	return (min);
 }
 
-List	*find_smaller_than(List *stack, int x)
+t_list	*find_smaller_than(t_list *stack, int x)
 {
-	List	*result;
+	t_list	*result;
 	int		min_value;
 
 	result = NULL;
@@ -59,10 +59,9 @@ List	*find_smaller_than(List *stack, int x)
 	return (result);
 }
 
-
-List	*find_larger_than(List *stack, int x)
+t_list	*find_larger_than(t_list *stack, int x)
 {
-	List	*result;
+	t_list	*result;
 	int		min_value;
 
 	result = NULL;
