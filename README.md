@@ -1,39 +1,35 @@
-## push_swap
+<h1 align="center">🚀 push_swap</h1>
+<p align="center">An efficient stack-sorting algorithm powered by <strong>Turk Sort</strong></p>
 
-High-performance sorting project using a minimal set of stack operations on two stacks (A and B). The goal is to sort integers with as few operations as possible.
+<p align="center">
+  <img src="https://i.postimg.cc/fb07syJt/image.jpg" alt="push_swap 42 score" width="350" />
+</p>
 
-### Why this project?
-push_swap demonstrates algorithm design, data-structure proficiency (doubly linked lists), and writing tight, safe C code that respects strict constraints on allowed functions and output format.
 
-## Features
-- Doubly linked list stack implementation (`t_list`)
-- All required operations: sa/sb/ss, pa/pb, ra/rb/rr, rra/rrb/rrr
-- Robust parsing and validation (duplicates, non-numeric, overflow)
-- Cost-based strategy to choose the cheapest next move
-- Small-sort optimization for 2–3 elements
+## 🚧 Constraints
+- Only the following external functions are allowed: read, write, malloc, free, exit
+- On error, the program must print Error followed by a newline and exit with a non-zero status
+- All inputs are validated before processing to avoid undefined behavior. No duplicates or non numeric input.
 
-## Constraints
-- Allowed external functions: `read`, `write`, `malloc`, `free`, `exit`
-- Error output strictly: `Error` followed by a newline
-- Undefined behavior is avoided; inputs are validated before processing
 
-## Requirements
+## 📋 Requirements
 - GCC or Clang
 - Make
 
-## Build
+## 🛠️ Build
+Use make in your terminal to build and manage the project:
+
 ```bash
 make
 ```
-
 Common targets:
 - `make` — builds `push_swap`
 - `make clean` — removes object files
 - `make fclean` — removes objects and binaries
 - `make re` — full rebuild
 
-## Usage
-You can pass numbers as separate arguments or as a single quoted string.
+## ▶️ Usage
+You can pass numbers either as separate arguments or as a single-quoted string:
 
 ```bash
 ./push_swap 2 1 3 6 5 8
@@ -48,47 +44,24 @@ Invalid input examples (program prints `Error` and exits with a non-zero status)
 - Duplicate: `./push_swap 1 2 2`
 - Out of 32-bit int range: `./push_swap 2147483648`
 
-## Algorithm Overview
-The solution uses a cost-driven approach with two stacks:
-- Represent each node as `t_list` with fields: `value`, `pos`, `pair_pos`, `cost_a`, `cost_b`, and `prev/next` pointers.
-- For >3 elements:
-  - Push a couple of elements to stack B to bootstrap.
-  - Repeatedly:
-    - Compute positions and rotation costs in both stacks.
-    - Pair each candidate with its optimal insertion spot across stacks.
-    - Select the cheapest element (`get_cheapest_element`) using `calculate_cost`.
-    - Execute combined rotations to minimize moves and push between stacks.
-  - Small-sort the remaining 3 elements in A.
-  - Merge back from B to A using the same pairing/cost logic, then rotate A to final order.
 
-For 2–3 elements, a dedicated small-sort routine is used for minimal steps.
-
-### Time/Move Complexity (practical)
-- The algorithm is heuristic and aims to minimize moves via combined rotations; typical performance is competitive with common push_swap strategies.
-- Small inputs (≤3): optimal or near-optimal.
-- Larger inputs: near O(n log n) behavioral patterns for many distributions, with worst-cases bounded by the constraints of the operation set.
-
-## Testing
+## 🛃 Testing
 Manual quick checks:
 ```bash
 ./push_swap 2 1
 ./push_swap 3 2 1
 ./push_swap 2 3 1 5 4
-./push_swap "-3 0 42 7 -1 5 5"   # duplicate -> Error
+./push_swap "-3 0 42 7 -1 5 5"    # duplicate -> Error
 ./push_swap 2147483648            # overflow -> Error
 ```
 
-If you have a checker (e.g., 42’s `checker_linux`), pipe the output:
-```bash
-ARG="3 2 1 6 5 4"; ./push_swap $ARG | ./checker_linux $ARG
-```
 
 Optionally measure move counts:
 ```bash
 ARG=$(seq 1 100 | shuf | tr '\n' ' '); OPS=$(./push_swap $ARG | wc -l); echo $OPS
 ```
 
-## Project Structure
+## 🧬 Project Structure
 ```
 include/
   list.h        # t_list struct and typedef
@@ -102,12 +75,3 @@ src/
 libft/          # local lib (printf, utils, etc.)
 Makefile        # build rules
 ```
-
-## Notes
-- Error handling frees allocated memory before exiting.
-- Output is limited to the operation sequence and `Error` on invalid inputs.
-
-## License
-This repository is provided as-is for educational purposes. Choose and add a license if you plan to publish/distribute.
-
-
