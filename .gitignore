@@ -1,5 +1,6 @@
 # Ignore editor-specific folders
 .vscode/
+.idea
 
 # Ignore compiled binary files
 **/*.o

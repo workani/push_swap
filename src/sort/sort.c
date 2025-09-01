@@ -6,7 +6,7 @@
 /*   By: dklepenk <dklepenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:29:55 by dklepenk          #+#    #+#             */
-/*   Updated: 2025/08/27 20:14:12 by dklepenk         ###   ########.fr       */
+/*   Updated: 2025/09/01 16:01:49 by dklepenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,10 @@ void	sort_a(t_list **a, t_list **b)
 	put_min_on_top(*a);
 }
 
-void	sort(t_list **a, t_list **b, int a_len)
+void	sort_b(t_list **a, t_list **b, int a_len)
 {
 	t_list	*cheapest_element;
 
-	if (is_sorted(*a))
-		return ;
-	if (a_len <= 3)
-		return (small_sort(*a, a_len));
 	do_pb(a, b);
 	do_pb(a, b);
 	a_len -= 2;
@@ -74,5 +70,14 @@ void	sort(t_list **a, t_list **b, int a_len)
 	set_cost_and_pairs(*a, *b, false);
 	put_max_on_top(*b);
 	small_sort(*a, 3);
+}
+
+void	sort(t_list **a, t_list **b, int a_len)
+{
+	if (is_sorted(*a))
+		return ;
+	if (a_len <= 3)
+		return (small_sort(*a, a_len));
+	sort_b(a, b, a_len);
 	sort_a(a, b);
 }
